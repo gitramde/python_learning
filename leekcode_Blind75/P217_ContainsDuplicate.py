@@ -7,8 +7,9 @@
 
 class ContainsDuplicate:
    def has_duplicate(self, nums: list[int]) -> bool:
-        hashset = set(nums)
-        if len(hashset) == len(nums):
+        #Expected Complexity for this function Time - O(n); Space - O(n)
+        hashset = set(nums)                 # O(n)
+        if len(hashset) == len(nums):       # Len() - O(1) as length is an attribute stored in list and set
             return False
         else:
             return True
