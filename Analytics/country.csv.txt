@@ -1,0 +1,5 @@
+id,country,description
+1,USA,The United States is a highly developed country that has the highest median income of any polity in the world.
+2,India,India is a country in South Asia.It is the seventh-largest country by area and most populous country.
+3,Canada,Canada is a country in North America. Its ten provinces and three territories extend from the Atlantic Ocean to the Pacific Ocean.
+4,Mexico,Mexico is a country in the southern portion of North America.
