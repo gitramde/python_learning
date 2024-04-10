@@ -1,5 +1,23 @@
 import csv
+import pandas as pd
+import numpy as np
+
 def read_csv(filepath):
+    """
+    https://medium.com/casual-inference/the-most-time-efficient-ways-to-import-csv-data-in-python-cc159b44063d
+    csv.reader() -
+        -
+    csv.DictReader() -
+    pandas.read_csv() -
+        https://gouthamanbalaraman.com/blog/distributed-processing-pandas.html
+    dask.dataframe.read_csv() -
+        https://pythondata.com/dask-large-csv-python/
+    paratext.load_csv_to_direct() -
+    paratext.load_csv_to_pandas() -
+    datatable -
+    :param filepath:
+    :return:
+    """
     with open(file= filepath, mode= 'r', encoding='UTF-8') as csvfile:
         csv_rows = csv.reader(csvfile, delimiter=',')
         for rows in csv_rows:
