@@ -22,14 +22,45 @@
 
 """
     String Formatting (4 different formatting options) 
-        1. printf-style
-            a. Uses String Formatting or Interpolation operator (% Operator (modulo))
-            b. format % values --> format is the string and values can be a single non-tuple object or tuple with exact 
-               number of items specified in the format string. 
+        1. printf-style (
+            a. Uses String Formatting or Interpolation operator (% - Modulo Operator)
+            b. format-string % values --> * format-string is the string to be formatted;  
+                                          * values can be a single non-tuple object or TUPLE with exact number of items 
+                                          specified in the format string or a DICTIONARY that has a value for each key. 
+            c. Conversion Specifier has to be in the below order 
+                %[Mapping key][flags][width][.precision][length]type 
+                i. Mapping key - parenthesised sequence of characters. example: (someone)
+                ii. Conversion flags -     
+                        '#' - value conversion will use alternate form. 
+                        '0' - zero padding for numeric values 
+                        '-' - converted value is left adjusted (overrides '0' conversion)
+                        ' ' - blank space before a positive number
+                        '+' or '-' - sign that precedes the conversion 
+                iii. Conversion type ('d' & 'i' - signed integer decimal; 'o' - signed octal value, 
+                                      'e' or 'E' floating point exponential lower & upper case, 
+                                      'f' or 'F' floating point lower or upper case, 'c' - character, 
+                                      'r' - string using repr(), 's' - string using str(), 'a' - string using ascii
+                NOTE: width and length can display any number of characters above the specified value (minimum characters)
         2. formatted string strings (f string)
         3. str.format()
         4. template_strings 
     
 """
+
+# ----------------------- printf style examples ---------------------------- #
+
+print('%(language)s has %(number)03d quote types.' %
+      {'language': 'Python', "number": 2})
+# output - Python has 002 quote types.
+# uses mapping key, flag '0', length modifier and type; uses dictionary for values
+
+print (" Grocery Cost : %5.2f;  Number of Items: %5d" % (258.456, 800))
+#  Grocery Cost : 258.46;  Number of Items:   800
+# %5.2f - String need to have minimum 5 digits and 2 decimal points. if not, left padded with spaces
+
+# ----------------------- Formatted Strings - f string ---------------------------- #
+
+
+
 
 
