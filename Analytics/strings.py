@@ -64,6 +64,40 @@ print (" Grocery Cost : %5.2f;  Number of Items: %5d" % (258.456, 800))
 
 # ----------------------- Formatted String Literals - f string ---------------------------- #
 
+# ----------------------- Formatting Strings - Format function ----------------------------- #
+
+name = "Alice"
+age = 25
+
+msg = "Hello, {}. You are {} years old.".format(name, age)
+print(msg)
+
+# ----------------------- Slicing ----------------------------- #
+
+"""
+Slicing →
+ input_string[start:end:step] 
+        1. Does not include the character at the index end 
+        2. If Step is omitted, it is defaulted to 1 
+        
+ Examples:
+    input_string[:3] → First 3 characters of the string
+    input_string[4:] → From 4th character till end of the string
+    input_string[-2:] → Last 2 characters of a string
+    input_string[::-1] → Reverse a string 
+
+"""
+
+input_string = 'This is a sample string.'
+
+print("*************** Slicing ******************")
+print(f"Original String - {input_string}")
+print(f"First 3 characters - {input_string[:3]}")
+print(f"From 4th character to end of string - {input_string[4:]}")
+print(f"Last 2 characters - {input_string[-2:]}")
+print(f"Reverse a string - {input_string[::-1]}")
+print(f"Omit 4th character - {input_string[:3]+input_string[4:]}")
+
 
 
 
