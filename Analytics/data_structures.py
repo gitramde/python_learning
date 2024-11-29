@@ -118,3 +118,49 @@ contains_1 = 1 in my_set
 
 ############################################ DICTIONARY ##################################################
 
+"""
+Used to store key-value pairs. The simplest way of thinking about them is as a table with two columns.
+The first column is the key, and the second column is the value.
+
+we are mapping a key to the value. 
+This is why dictionaries are sometimes called maps or hashmaps in other programming languages.
+
+    1. Dictionaries can't have duplicate keys
+    2. Like Set we can't loop through with the length of the dictionary 
+    3. 
+"""
+
+my_dict = {}
+
+my_dict["Alice"] = 25
+my_dict["Bob"] = 30
+my_dict["Charlie"] = 35
+
+# To check if a key exists in the dictionary
+print("Alice" in my_dict)
+
+# Looping through dictionary
+for key in my_dict:
+    print(key, my_dict[key])
+
+for value in my_dict.values():
+    print(value)
+
+for key, value in my_dict.items():
+    print(key, value)
+
+ # Remove the key "Alice".
+# IF the second parameter is "0" then it won't raise keyerror for key that doesn't exists.
+
+my_dict.pop("Alice", 0)
+
+# one Usage of dictionary - count number of occurences of a character in string
+word = "hello"
+char_count = {}
+for char in word:
+    if char in char_count:
+        char_count[char] += 1
+    else:
+        char_count[char] = 1
+print(char_count)
+
