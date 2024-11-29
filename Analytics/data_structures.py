@@ -152,7 +152,16 @@ for key, value in my_dict.items():
  # Remove the key "Alice".
 # IF the second parameter is "0" then it won't raise keyerror for key that doesn't exists.
 
-my_dict.pop("Alice", 0)
+my_dict.pop("Ram", 0)
+
+# Implement the above using exception handling
+# Throws KeyError .. If any other exception, just show the value
+try:
+    my_dict.pop("Ram")
+except KeyError:
+    print("Error: KeyError value!")
+except Exception as error:
+    print("Error: ", error)
 
 # one Usage of dictionary - count number of occurences of a character in string
 word = "hello"
