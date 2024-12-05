@@ -11,6 +11,8 @@ Option 2: sorted()
     The sorted() function returns a new list with the elements sorted in the specified order.
     The original list remains unchanged.
 
+    For the most part, it's similar to the sort() method, but it returns a new list instead of modifying the original list.
+
 """
 
 # Ascending Order
@@ -40,4 +42,5 @@ words.sort(key=get_word_length)
 words.sort(key=lambda word: len(word))
 
 print(words)
+
 
