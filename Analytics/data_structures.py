@@ -2,7 +2,19 @@
 """
 Lists
     - Collection of items stored in a specific order.
+    - Some languages have both fixed-size arrays and resizable arrays.
+      In Python, we only have resizable arrays, which are referred to as lists in Python.
     - Lists are MUTABLE (element value can be changed)
+    - Common Operations
+        - append() -> [O(1)] Add an element at the end of the list
+        - pop() -> [O(1)] Removes and return the last element of the list
+            1. If the list is already empty, we will get an IndexError.
+            2. We can also pop a specific index. If we pop(index) an index that is out of bounds,
+               we will get an IndexError.
+        - insert() -> [O(1)] Inserts an element at a specified index in the list.
+        - index()  -> [O(n)] Returns the index of the first occurrence of a specified element in the list.
+        - remove() -> [O(n)] Removes the first occurrence of a specified element from the list.
+        - extend() -> [O(n)] Add elements of another list to the end of the list
 """
 
 my_list = [1, 2, 3, 4]
@@ -19,11 +31,13 @@ if 2 in my_list:
 print(my_list.index(3))
 
 # Looping through List
+print("start: looping through the list")
 for i in range(len(my_list)):
     print(my_list[i])
 
 for element in my_list:
     print(element)
+print("end: looping through the list")
 
 # Aggregation of List
 
@@ -33,16 +47,40 @@ print(min(my_list))
 
 # Methods to alter the list ( Methods are associated to an object)
 # Append method .. Appends a new value to the end of the list
-print(my_list)
+print(f"List :{my_list}")
 my_list.append(5)
-print(my_list)
+print(f"After appending 5 to the end: {my_list}")
+
 
 # Pop Method .. Removes the last element of the list by default
 # but can delete the element at any index as well.
+#    - This method also returns the popped out value.
+#
 my_list.pop()
-print(my_list)
-my_list.pop(0) # Removes the first element of the list
-print(my_list)
+print(f"After popping the last value: {my_list}")
+pop_output = my_list.pop(0) # Removes the first element from the list and returns that element
+print(f"Popped value: {pop_output}")
+print(f"After popping the first value: {my_list}")
+
+# Insert elements into the list
+my_list.insert(0,1)
+print(f"After insertion: {my_list}")
+
+my_list = [1, 3, 2, 3]
+
+print(f"New List for next 3 operations: {my_list}")
+
+element = my_list.index(3) # 1
+
+print(f"element at the index 3: {element}")
+
+my_list.remove(3) # [1, 2, 3]
+
+print(f"After removing the first occurence of element 3: {my_list}")
+
+my_list.extend([4, 5]) # [1, 2, 3, 4, 5]
+
+print(f"After extending the list by another list: {my_list}")
 
 # List Slicing
 """
@@ -66,7 +104,7 @@ print(f"From 4th elements to end of list - {my_list[4:]}")
 print(f"Last 2 elements of the list - {my_list[-2:]}")
 print(f"Reverse a list - {my_list[::-1]}")
 
-############################################ LISTS ##################################################
+############################################ Tuples ##################################################
 
 """ 
 Tuples are very similar to lists, but they have one key difference: they are immutable.
