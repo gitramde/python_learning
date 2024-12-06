@@ -16,7 +16,25 @@ Lists
         - remove() -> [O(n)] Removes the first occurrence of a specified element from the list.
         - extend() -> [O(n)] Add elements of another list to the end of the list
 """
+# Easiest way to create an empty list of specific size in python
 
+my_list = [0] * 5 # Creates a list of 5 zeroes
+
+# List comprehension
+print("start: List Comprehension")
+my_list = [i for i in range(5)]
+
+print(my_list) # [0, 1, 2, 3, 4]
+
+arr1 = [1, 2, 3]
+arr2 = [4, 5, 6]
+result = [i+j for i, j in zip(arr1, arr2)] # [1, 2, 3, 4, 5, 6]
+
+arr = [1, 2, 3, 4, 5]
+
+result = [i for i in arr if i % 2 == 0] # [2, 4]
+
+print("end: List Comprehension")
 my_list = [1, 2, 3, 4]
 # check if list is empty
 if my_list:
@@ -78,7 +96,12 @@ my_list.remove(3) # [1, 2, 3]
 
 print(f"After removing the first occurence of element 3: {my_list}")
 
-my_list.extend([4, 5]) # [1, 2, 3, 4, 5]
+my_list.extend([4, 5]) # [1, 2, 3, 4, 5] Time Complexity - O(m)
+
+# Other way to concatenate the lists - This creates a new list ...
+# extend() modifies the original list
+
+result = my_list + [4, 5] # O(n+m)
 
 print(f"After extending the list by another list: {my_list}")
 
@@ -104,110 +127,23 @@ print(f"From 4th elements to end of list - {my_list[4:]}")
 print(f"Last 2 elements of the list - {my_list[-2:]}")
 print(f"Reverse a list - {my_list[::-1]}")
 
-############################################ Tuples ##################################################
-
-""" 
-Tuples are very similar to lists, but they have one key difference: they are immutable.
-
-We can create a tuple by using parentheses... my_tuple = (4, 5, 6)
-
-    1. pop() and append() doesn't work .
-    2. sum(), max() and min() works on tuples
-    3. Slicing a tuple doesn't modify it, instead it creates a new tuple with the specified slice.
-
+# Cloning a list
 """
-
-############################################ SETS ##################################################
+Python provides multiple ways to clone a list. Here are a few ways to do it:
+1. Using the copy() method
+2. Using the slicing syntax
+3. using the list() constructor 
+4. Using copy.deepcopy() for deep copies (Nested objects in list ... like list of lists)
 """
-In Python, a set is very similar to a list, but with a few key differences.
+original_list = [1, 2, 3]
+cloned_list = original_list.copy()
 
-    1. A set is unordered, meaning the elements are not stored in a specific order. 
-       If order is important, you should use a list.
-    2. A set can only contain unique elements. If you try to add a duplicate element to a set, it will be ignored.
-    
-"""
+cloned_list = original_list[:]
 
-my_set = {1, 2, 3}
+cloned_list = list(original_list)
 
-my_set = set()
-# If we used empty curly braces {}, it would not have declared a set.
-# That's because Python uses curly braces to declare an empty dictionary.
-my_set.add(1)
-my_set.add(2)
+import copy
 
-# convert list to set
-my_set = set(my_list)
+original_list = [[1, 2], [3, 4]]
 
-# Set Operations
-#   Remove() - to remove an element
-my_set.remove(2) # If the element doesn't exists, it raises KeyError
-
-# Looping through sets
-# Just like with lists, we can loop over elements within a set using for loops.
-# The difference is that we can't access elements by index because sets are unordered.
-# The order that we loop over a set is not guaranteed.
-
-my_set = {1, 2, 3}
-
-for element in my_set:
-    print(element)
-
-contains_1 = 1 in my_set
-
-############################################ DICTIONARY ##################################################
-
-"""
-Used to store key-value pairs. The simplest way of thinking about them is as a table with two columns.
-The first column is the key, and the second column is the value.
-
-we are mapping a key to the value. 
-This is why dictionaries are sometimes called maps or hashmaps in other programming languages.
-
-    1. Dictionaries can't have duplicate keys
-    2. Like Set we can't loop through with the length of the dictionary 
-    3. 
-"""
-
-my_dict = {}
-
-my_dict["Alice"] = 25
-my_dict["Bob"] = 30
-my_dict["Charlie"] = 35
-
-# To check if a key exists in the dictionary
-print("Alice" in my_dict)
-
-# Looping through dictionary
-for key in my_dict:
-    print(key, my_dict[key])
-
-for value in my_dict.values():
-    print(value)
-
-for key, value in my_dict.items():
-    print(key, value)
-
- # Remove the key "Alice".
-# IF the second parameter is "0" then it won't raise keyerror for key that doesn't exists.
-
-my_dict.pop("Ram", 0)
-
-# Implement the above using exception handling
-# Throws KeyError .. If any other exception, just show the value
-try:
-    my_dict.pop("Ram")
-except KeyError:
-    print("Error: KeyError value!")
-except Exception as error:
-    print("Error: ", error)
-
-# one Usage of dictionary - count number of occurences of a character in string
-word = "hello"
-char_count = {}
-for char in word:
-    if char in char_count:
-        char_count[char] += 1
-    else:
-        char_count[char] = 1
-print(char_count)
-
+cloned_list = copy.deepcopy(original_list)
