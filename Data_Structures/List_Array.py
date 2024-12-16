@@ -55,6 +55,11 @@ for i in range(len(my_list)):
 
 for element in my_list:
     print(element)
+
+# Reverse looping
+for element in reversed(my_list):
+    print(element)
+
 print("end: looping through the list")
 
 # Aggregation of List
@@ -83,6 +88,10 @@ print(f"After popping the first value: {my_list}")
 # Insert elements into the list
 my_list.insert(0,1)
 print(f"After insertion: {my_list}")
+
+# Reverse a List
+my_list.reverse()
+print(f"Reversed List: {my_list}")
 
 my_list = [1, 3, 2, 3]
 
