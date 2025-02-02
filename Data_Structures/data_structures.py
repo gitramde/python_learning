@@ -48,6 +48,11 @@ if 2 in my_list:
 # Return the index of a list element
 print(my_list.index(3))
 
+# Access leftmost and rightmost element
+print(my_list)
+print(f" Left most element - [0]: {my_list[0]}")
+print(f" Right most element - [-1]: {my_list[-1]}")
+
 # Looping through List
 print("start: looping through the list")
 for i in range(len(my_list)):
