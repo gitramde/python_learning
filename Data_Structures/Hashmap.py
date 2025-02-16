@@ -37,13 +37,13 @@ print('b' in my_dict) # False
 
 
 """ 
-Default Dict 
+************* Default Dict ********************
 
 The collections module provides a class called defaultdict that is a subclass of the built-in 
 dict class. 
 It allows you to set a default value for a key that doesn't exist in the dictionary.
 
-This can be very useful when counting the frequency of elements in a list. 
+This can be very useful when COUNTING THE FREQUENCY OF ELEMENTS IN A LIST
 
 If a key doesn't exist in the dictionary, it will be created with a default value of the integer 0.
 This allows us to increment the value without checking if the key exists.
@@ -58,6 +58,15 @@ for num in nums:
     freq[num] += 1
 
 print(freq)  # {1: 2, 2: 2, 4: 1, 3: 1}
+
+"""
+Counter 
+
+If all we want to do is count the occurrences of elements in a list, 
+an even better solution exists than the defaultdict.
+
+We can use the collections.Counter class:
+"""
 
 ############################### Challenges ###############################################
 """
