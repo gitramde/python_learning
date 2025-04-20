@@ -68,6 +68,29 @@ an even better solution exists than the defaultdict.
 We can use the collections.Counter class:
 """
 
+from collections import Counter
+
+nums = [1, 2, 4, 3, 2, 1]
+
+counter = Counter(nums)
+
+print(counter) # Counter({1: 2, 2: 2, 4: 1, 3: 1})
+
+counter[100] += 1 # No error even when the index 100 don't exists
+
+print(counter) # Counter({1: 2, 2: 2, 4: 1, 3: 1, 100: 1})
+
+# to count from multiple lists
+
+nums1 = [1, 2, 4, 3, 2, 1]
+nums2 = [1, 2, 3, 4, 5]
+
+print("Counting from multiple lists: ")
+counter = Counter(nums1)
+counter.update(nums2)
+
+print(counter)  # Counter({1: 3, 2: 3, 4: 2, 3: 2, 5: 1})
+
 ############################### Challenges ###############################################
 """
 Implement the following functions:
@@ -97,7 +120,11 @@ nested_list_to_dict(nums: List[List[int]]) -> Dict[int, List[int]]
     Example: The input [[1, 2, 3], [4, 5, 6], [1, 4]] should return {1: [2, 3, 4], 4: [5, 6]}
         You may assume each sublist will have at least two elements.
 
+count_chars(s1: str, s2: str) ->
+    CounterType that takes two strings and returns a Counter object
+    that counts the occurences of each character in the two strings combined.
 """
+
 from typing import List, Dict
 
 
@@ -138,6 +165,16 @@ def nested_list_to_dict(nums: List[List[int]]) -> Dict[int, List[int]]:
 
     return output
 
+from collections import Counter
+from typing import Counter as CounterType
+
+
+def count_chars(s1: str, s2: str) -> CounterType:
+    counter = Counter(list(s1))
+    counter.update(list(s2))
+    return counter
+
+
 # do not modify below this line
 print(build_hash_map(["Alice", "Bob", "Charlie"], [90, 80, 70]))
 print(build_hash_map(["Jane", "Carol", "Charlie"], [25, 100, 60]))
@@ -154,4 +191,9 @@ print(count_chars("areallylongstringwhyareyoureadingthishahalol"))
 print(nested_list_to_dict([[1, 2, 3], [4, 5, 6], [1, 4]]))
 print(nested_list_to_dict([[1, 2, 3, 4], [4, 5, 6, 7], [1, 4, 5, 6]]))
 print(nested_list_to_dict([[5, 2, 3, 4, 5], [4, 5, 6, 7, 8], [5, 6, 7, 8, 9]]))
-print(nested_list_to_dict([[3, 2, 3, 4, 5], [4, 5, 6, 7, 8], [5, 6, 7, 8]]))
+print(nested_list_toou_dict([[3, 2, 3, 4, 5], [4, 5, 6, 7, 8], [5, 6, 7, 8]]))
+
+print(count_chars("hello", "world"))
+print(count_chars("hello", "worldhello"))
+print(count_chars("areallylongstring", "heyhowisitgoing"))
+
