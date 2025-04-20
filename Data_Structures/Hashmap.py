@@ -169,10 +169,29 @@ from collections import Counter
 from typing import Counter as CounterType
 
 
-def count_chars(s1: str, s2: str) -> CounterType:
+def count_chars_2(s1: str, s2: str) -> CounterType:
     counter = Counter(list(s1))
     counter.update(list(s2))
     return counter
+
+def num_to_index(nums: List[int]) -> Dict[int, int]:
+    """
+     Takes a list of integers and returns a dictionary where
+     the keys are the elements of the list and the values are
+     the indices of those elements in the list.
+     You can assume that all elements in the list are unique.
+    """
+    return {nums[i]: i for i in range(len(nums))}
+
+def get_dict_items(age_dict: Dict[str, int]) -> List[Tuple[str, int]]:
+    """
+    Takes a dictionary of names and ages and returns a list of tuples
+     where each tuple contains a name and an age.
+    """
+    age_list =[]
+    for key, value in age_dict.items():
+        age_list.append((key, value))
+    return age_list
 
 
 # do not modify below this line
@@ -191,9 +210,11 @@ print(count_chars("areallylongstringwhyareyoureadingthishahalol"))
 print(nested_list_to_dict([[1, 2, 3], [4, 5, 6], [1, 4]]))
 print(nested_list_to_dict([[1, 2, 3, 4], [4, 5, 6, 7], [1, 4, 5, 6]]))
 print(nested_list_to_dict([[5, 2, 3, 4, 5], [4, 5, 6, 7, 8], [5, 6, 7, 8, 9]]))
-print(nested_list_toou_dict([[3, 2, 3, 4, 5], [4, 5, 6, 7, 8], [5, 6, 7, 8]]))
+print(nested_list_to_dict([[3, 2, 3, 4, 5], [4, 5, 6, 7, 8], [5, 6, 7, 8]]))
 
-print(count_chars("hello", "world"))
-print(count_chars("hello", "worldhello"))
-print(count_chars("areallylongstring", "heyhowisitgoing"))
+print(count_chars_2("hello", "world"))
+print(count_chars_2("hello", "worldhello"))
+print(count_chars_2("areallylongstring", "heyhowisitgoing"))
+
+
 
